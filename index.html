@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Shop</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f9fc;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 20px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#27ae60;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#27ae60;
+}
+
+.cart-btn{
+    background:#27ae60;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.cart-btn:hover{
+    background:#1f8a4d;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.45),
+    rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    background:#27ae60;
+    color:white;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:40px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:2px solid white;
+    color:white;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#222;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:80px 8%;
+}
+
+.feature{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-10px);
+}
+
+.feature h3{
+    margin:15px 0;
+}
+
+/* PRODUCTS */
+
+.products{
+    padding:80px 8%;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.8rem;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+    transition:.4s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.rating{
+    color:#f1c40f;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:1.4rem;
+    color:#27ae60;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.card button{
+    width:100%;
+    border:none;
+    background:#27ae60;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.card button:hover{
+    background:#1f8a4d;
+}
+
+.badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#27ae60;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.sale{
+    background:#e74c3c;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    background:#27ae60;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.newsletter h2{
+    margin-bottom:15px;
+}
+
+.newsletter form{
+    margin-top:25px;
+}
+
+.newsletter input{
+    width:350px;
+    max-width:90%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+.newsletter button{
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:white;
+    padding:60px 8%;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-content h3{
+    margin-bottom:15px;
+}
+
+.footer-content a{
+    display:block;
+    color:#ccc;
+    text-decoration:none;
+    margin:8px 0;
+}
+
+.footer-content a:hover{
+    color:#27ae60;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    nav{
+        text-align:center;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:5px 10px;
+    }
+
+    .newsletter button{
+        margin-top:10px;
+        margin-left:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🥬 Daily needs store </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#">Offers</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <a href="#" class="cart-btn">🛒 Cart</a>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Fresh & Organic Products Delivered Daily</h1>
+
+        <p>
+            Healthy fruits, vegetables, dairy products and groceries
+            delivered fresh to your doorstep.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="btn">Shop Now</a>
+            <a href="#" class="btn-outline">Learn More</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="feature">
+        🚚
+        <h3>Free Delivery</h3>
+        <p>On orders above $50</p>
+    </div>
+
+    <div class="feature">
+        🌱
+        <h3>100% Organic</h3>
+        <p>Natural and healthy products</p>
+    </div>
+
+    <div class="feature">
+        ⭐
+        <h3>Top Rated</h3>
+        <p>Loved by thousands of customers</p>
+    </div>
+
+    <div class="feature">
+        🔒
+        <h3>Secure Payment</h3>
+        <p>Safe and protected checkout</p>
+    </div>
+
+</section>
+
+<section class="products" id="products">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+        <!-- Fresh Oranges -->
+<div class="card">
+    <span class="badge">Fresh</span>
+
+    <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&q=80" alt="Oranges">
+
+    <div class="card-body">
+        <h3>Sweet Oranges</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$4.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Tomatoes -->
+<div class="card">
+    <span class="badge">Organic</span>
+
+    <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=600&q=80" alt="Tomatoes">
+
+    <div class="card-body">
+        <h3>Fresh Tomatoes</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$6.50</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Potatoes -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80" alt="Potatoes">
+
+    <div class="card-body">
+        <h3>Organic Potatoes</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$7.20</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Milk -->
+<div class="card">
+    <span class="badge sale">15% OFF</span>
+
+    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80" alt="Milk">
+
+    <div class="card-body">
+        <h3>Fresh Milk</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$2.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Bread -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Bread">
+
+    <div class="card-body">
+        <h3>Soft Bread</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$3.50</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Eggs -->
+<div class="card">
+    <span class="badge">Farm Fresh</span>
+
+    <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=600&q=80" alt="Eggs">
+
+    <div class="card-body">
+        <h3>Farm Eggs</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$4.49</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Cheese -->
+<div class="card">
+    <span class="badge">Premium</span>
+
+    <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80" alt="Cheese">
+
+    <div class="card-body">
+        <h3>Cheddar Cheese</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$8.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Strawberries -->
+<div class="card">
+    <span class="badge sale">25% OFF</span>
+
+    <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80" alt="Strawberries">
+
+    <div class="card-body">
+        <h3>Fresh Strawberries</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$5.49</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Avocado -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?auto=format&fit=crop&w=600&q=80" alt="Avocado">
+
+    <div class="card-body">
+        <h3>Organic Avocado</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$6.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Grapes -->
+<div class="card">
+    <span class="badge">Popular</span>
+
+    <img src="https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80" alt="Grapes">
+
+    <div class="card-body">
+        <h3>Seedless Grapes</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$5.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Carrots -->
+<div class="card">
+    <img src="https://static.vecteezy.com/system/resources/previews/021/812/357/large_2x/carrot-on-ground-fresh-carrots-growing-in-carrot-field-vegetable-grows-in-the-garden-in-the-soil-organic-farm-harvest-agricultural-product-nature-free-photo.JPG">
+
+    <div class="card-body">
+        <h3>Organic Carrots</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$3.49</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+<!-- Watermelon -->
+<div class="card">
+    <span class="badge sale">30% OFF</span>
+
+    <img src="https://images.unsplash.com/photo-1563114773-84221bd62daa?auto=format&fit=crop&w=600&q=80" alt="Watermelon">
+
+    <div class="card-body">
+        <h3>Fresh Watermelon</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="price">$9.99</p>
+        <button>Add To Cart</button>
+    </div>
+</div>
+
+        <div class="card">
+            <span class="badge">Best Seller</span>
+
+            <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80" alt="Apples">
+
+            <div class="card-body">
+                <h3>Fresh Apples</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="price">$5.99</p>
+                <button>Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge sale">20% OFF</span>
+
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80" alt="Honey">
+
+            <div class="card-body">
+                <h3>Natural Honey</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="price">$12.99</p>
+                <button>Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" alt="Bananas">
+
+            <div class="card-body">
+                <h3>Banana Pack</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="price">$3.99</p>
+                <button>Add To Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="newsletter">
+
+    <h2>Get Weekly Discounts</h2>
+
+    <p>Subscribe and receive exclusive offers and updates.</p>
+
+    <form>
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Subscribe</button>
+    </form>
+
+</section>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <h3>Fresh Shop</h3>
+            <p>Your trusted source for fresh and healthy food.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Offers</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p>support@freshshop.com</p>
+            <p>+1 234 567 890</p>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
